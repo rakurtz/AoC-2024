@@ -7,9 +7,9 @@ function getTwoArrays(file: string) {
   for (const line of file.trim().split("\n")) {
     l.push(parseInt(line.split(" ")[0]));
     r.push(parseInt(line.split(" ")[3]));
-    l.sort();
-    r.sort();
   }
+  l.sort();
+  r.sort();
   return [l, r];
 }
 
@@ -82,8 +82,8 @@ function test_part2() {
   console.log("similarity: ", total);
 }
 
-console.log()
-console.log()
-console.log("Testing:")
+console.log();
+console.log();
+console.log("Testing:");
 test_part1();
 test_part2();
