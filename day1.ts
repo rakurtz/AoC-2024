@@ -1,7 +1,6 @@
 import { readInput } from "./common.ts";
 
-// read into two different sorted arrays
-function getTwoArrays(file: string) {
+function getSortedArrays(file: string) {
   const l = [];
   const r = [];
   for (const line of file.trim().split("\n")) {
@@ -41,17 +40,17 @@ function main() {
   {
     console.log("Day 1 - Part 1:");
     const inputData = readInput(1);
-    const [l, r] = getTwoArrays(inputData);
+    const [l, r] = getSortedArrays(inputData);
     const total = calculateDistance(l, r);
-    console.log("Total distance is: ", total);
+    console.log("Distance is: ", total);
   }
 
   {
     console.log("Day 1 - Part 2:");
     const inputData = readInput(1);
-    const [l, r] = getTwoArrays(inputData);
+    const [l, r] = getSortedArrays(inputData);
     const total = calculateSimilarity(l, r);
-    console.log("Total similarity is: ", total);
+    console.log("Similarity is: ", total);
   }
 }
 
@@ -70,14 +69,14 @@ const testInput = `
 
 function test_part1() {
   console.log("testing part 1");
-  const [l, r] = getTwoArrays(testInput);
+  const [l, r] = getSortedArrays(testInput);
   const total = calculateDistance(l, r);
   console.log("distance: ", total);
 }
 
 function test_part2() {
   console.log("testing part 2");
-  const [l, r] = getTwoArrays(testInput);
+  const [l, r] = getSortedArrays(testInput);
   const total = calculateSimilarity(l, r);
   console.log("similarity: ", total);
 }
