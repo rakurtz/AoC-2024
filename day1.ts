@@ -13,7 +13,7 @@ function getTwoArrays(file: string) {
   return [l, r];
 }
 
-function calculateTotalDistance(l: number[], r: number[]) {
+function calculateDistance(l: number[], r: number[]) {
   let total = 0;
   for (let i = 0; i < l.length; i++) {
     total += Math.abs(l[i] - r[i]);
@@ -22,18 +22,18 @@ function calculateTotalDistance(l: number[], r: number[]) {
 }
 
 function countFrequencies(arr: number[]) {
-  const counts = {};
+  const frequencies = {};
   for (const n of arr) {
-    counts[n] = counts[n] ? (counts[n] += 1) : 1;
+    frequencies[n] = frequencies[n] ? (frequencies[n] += 1) : 1;
   }
-  return counts;
+  return frequencies;
 }
 
 function calculateSimilarity(l: number[], r: number[]) {
-  let similarityValue = 0;
+  let similarity = 0;
   const counts = countFrequencies(r);
-  l.forEach((n) => (similarityValue += n * (counts[n] ?? 0)));
-  return similarityValue;
+  l.forEach((n) => (similarity += n * (counts[n] ?? 0)));
+  return similarity;
 }
 
 function main() {
@@ -42,7 +42,7 @@ function main() {
     console.log("Day 1 - Part 1:");
     const inputData = readInput(1);
     const [l, r] = getTwoArrays(inputData);
-    const total = calculateTotalDistance(l, r);
+    const total = calculateDistance(l, r);
     console.log("Total distance is: ", total);
   }
 
@@ -71,7 +71,7 @@ const testInput = `
 function test_part1() {
   console.log("testing part 1");
   const [l, r] = getTwoArrays(testInput);
-  const total = calculateTotalDistance(l, r);
+  const total = calculateDistance(l, r);
   console.log("distance: ", total);
 }
 
